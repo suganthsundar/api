@@ -1,0 +1,46 @@
+DECLARE
+  Query       VARCHAR2(32767) := 'Select * from Org_Organization_definitions and where rownum <10';
+  Cursor_Name INTEGER := Dbms_Sql.Open_Cursor;
+  Col_Cnt     INTEGER;
+  Col_Num     INTEGER;
+  Rows        INTEGER;
+  v           Dbms_Sql.Varchar2_Table;
+  TYPE Return_Value_t IS TABLE OF v%TYPE;
+  r       Return_Value_t := Return_Value_t();
+  Rec_Tab Dbms_Sql.Desc_Tab2;
+ 
+BEGIN
+  --Dbms_Output.Put_Line(Query);
+  Dbms_Sql.Parse(Cursor_Name, Query, Dbms_Sql.Native);
+  Dbms_Sql.Describe_Columns2(Cursor_Name, Col_Cnt, Rec_Tab);
+  FOR Col_Num IN 1 .. Col_Cnt LOOP
+    Dbms_Sql.Define_Array(Cursor_Name, Col_Num, v, 1000, 1);
+  END LOOP;
+ 
+  FOR Col_Num IN 1 .. Col_Cnt LOOP
+    Dbms_Output.Put(Rec_Tab(Col_Num).Col_Name || Chr(9));
+  END LOOP;
+  Dbms_Output.Put_Line('');
+ 
+  Rows := Dbms_Sql.Execute(Cursor_Name);
+  LOOP
+    Rows := Dbms_Sql.Fetch_Rows(Cursor_Name);
+  
+    FOR Col_Num IN 1 .. Col_Cnt LOOP
+      r.Extend;
+      Dbms_Sql.Column_Value(Cursor_Name, Col_Num, r(Col_Num));
+    END LOOP;
+    EXIT WHEN Rows != 1000;
+  END LOOP;
+  FOR i IN 1 .. r(1).Count LOOP
+    FOR j IN 1 .. Col_Cnt LOOP
+      Dbms_Output.Put(r(j) (i) || Chr(9));
+    END LOOP;
+    Dbms_Output.Put_Line('');
+  END LOOP;
+ 
+  Dbms_Sql.Close_Cursor(Cursor_Name);
+  Exception
+    When Others Then
+      Dbms_output.Put_line(Sqlerrm);    
+END;
