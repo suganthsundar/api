@@ -1,4 +1,0 @@
-api
-===
-
-Application Code Snippets
