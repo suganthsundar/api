@@ -1,7 +1,7 @@
 *Setting*	*Value* *Value*
-Documentation  	Test Suite to validate Advance Search API for Location Search Type under Network Domain 
-Resource	tests/resources/api_keywords.robot  
-Test Template	Advance Search  
+Documentation  	Test Suite to validate Advance Search API for Location Search Type under Network Domain   
+Resource	tests/resources/api_keywords.robot    
+Test Template	Advance Search    
 Force Tags	Network	API
 
 *Variable*	*Value*
