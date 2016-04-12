@@ -4,7 +4,7 @@ Resource	tests/resources/api_keywords.robot
 Test Template	Advance Search
 Force Tags	Network	API
 
-*Variable*	*Value*	*Value*	*Value*
+*Variable*	*Value*
 ${DOMAIN}	network
 ${TYPE}	location
 
