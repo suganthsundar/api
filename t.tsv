@@ -1,0 +1,95 @@
+*Setting*	*Value*	*Value*	*Value*
+Documentation  	Test Suite to validate Advance Search API
+...	for Location Search Type under Network Domain
+Resource	tests/resources/api_keywords.robot		
+Test Template	Advance Search
+Force Tags	Network	API
+
+*Variable*	*Value*	*Value*	*Value*
+${DOMAIN}	network
+${TYPE}	location
+
+*Test Case*	*Value*	*Value*	*Value*
+NAME Equal	type=${TYPE}	equal[location.name]=SQUARE PARK
+NAME Notequal	type=${TYPE}	notequal[location.name]=SQUARE PARK
+NAME Contains	type=${TYPE}	contains[location.name]=PARK
+ADDRESS_1 Equal	type=${TYPE}	equal[location.address_1]=10 AVERY ST
+ADDRESS_1 Notequal	type=${TYPE}	notequal[location.address_1]=10 AVERY ST
+ADDRESS_1 Range	type=${TYPE}	contains[location.address_1]=AVERY
+CITY Equal	type=${TYPE}	equal[location.city]=Maple Shade
+CITY Notequal	type=${TYPE}	notequal[location.city]=Maple Shade
+CITY Contains	type=${TYPE}	contains[location.city]=Maple
+STATE Equal	type=${TYPE}	equal[location.state]=NJ
+STATE Notequal	type=${TYPE}	notequal[location.state]=NJ
+STATE Contains	type=${TYPE}	contains[location.state]=A
+ZIP_CODE Equal	type=${TYPE}	equal[location.zip_code]=08052
+ZIP_CODE Not Equal	type=${TYPE}	notequal[location.zip_code]=08052
+ZIP_CODE Contains	type=${TYPE}	contains[location.zip_code]=080
+IS_NETWORK True	type=${TYPE}	equal[location.is_network]=1
+IS_NETWORK False	type=${TYPE}	equal[location.is_network]=0
+IS_COMMERCIAL True	type=${TYPE}	equal[location.is_commercial]=1
+IS_COMMERCIAL False	type=${TYPE}	equal[location.is_commercial]=0
+DIVISION_NAME Equal	type=${TYPE}	equal[location.division_name]=Northeast
+DIVISION_NAME Notequal	type=${TYPE}	notequal[location.division_name]=Northeast
+DIVISION_NAME Contains	type=${TYPE}	contains[location.division_name]=East
+REGION_NAME Equal	type=${TYPE}	equal[location.region_name]=SEATTLE/TACOMA MARKET
+REGION_NAME Notequal	type=${TYPE}	notequal[location.region_name]=SEATTLE/TACOMA MARKET
+REGION_NAME Contains	type=${TYPE}	contains[location.region_name]=TACOMA
+SYSTEM_NAME Equal	type=${TYPE}	equal[location.system_name]=BELTWAY NORTH
+SYSTEM_NAME Notequal	type=${TYPE}	notequal[location.system_name]=WEST
+SYSTEM_NAME Contains	type=${TYPE}	contains[location.system_name]=West
+ID_REF_LOCATION_TYPE Equal	type=${TYPE}	equal[location.id_ref_location_type]=2
+ID_REF_LOCATION_TYPE In	type=${TYPE}	equal[location.id_ref_location_type]=2;5
+UPDATED_AT From	type=${TYPE}	from[location.updated_at]=20160101
+UPDATED_AT To	type=${TYPE}	to[location.updated_at]=20160429
+UPDATED_AT Range	type=${TYPE}	from[location.updated_at]=20160101	to[location.updated_at]=20160429
+ASSET_TAG Equal	type=${TYPE}	equal[part.asset_tag]=A97N014001599
+ASSET_TAG Not Equal	type=${TYPE}	notequal[part.asset_tag]=A97N014001599
+ASSET_TAG Contains	type=${TYPE}	contains[part.asset_tag]=A97
+CREATED_AT From	type=${TYPE}	from[part.created_at]=20160101
+CREATED_AT To	type=${TYPE}	to[part.created_at]=20160429
+CREATED_AT Range	type=${TYPE}	from[part.created_at]=20160101	to[part.created_at]=20160429
+FQDN Equal	type=${TYPE}	equal[part.fqdn]=ce-sntqutma00w.cpe.ut.utah.comcast.net
+FQDN Not Equal	type=${TYPE}	notequal[part.fqdn]=ce-sntqutma00w.cpe.ut.utah.comcast.net
+FQDN Contains	type=${TYPE}	contains[part.fqdn]=utah.comcast.net
+INTERNAL_LOCATION Equal	type=${TYPE}	equal[part.internal_location]=test
+INTERNAL_LOCATION Notequal	type=${TYPE}	notequal[part.internal_location]=test
+INTERNAL_LOCATION Contains	type=${TYPE}	contains[part.internal_location]=room
+IP_ADDRESS Equal	type=${TYPE}	equal[part.ip_address]=96.124.255.155
+IP_ADDRESS Notequal	type=${TYPE}	notequal[part.ip_address]=96.124.255.155
+IP_ADDRESS Contains	type=${TYPE}	contains[part.ip_address]=96.124
+LAST_AUDITED From	type=${TYPE}	from[part.last_audited]=20160101
+LAST_AUDITED To	type=${TYPE}	to[part.last_audited]=20160429
+LAST_AUDITED Range	type=${TYPE}	from[part.last_audited]=20160101	to[part.last_audited]=20160429
+LAST_DISCOVERED_AT From	type=${TYPE}	from[part.last_discovered_at]=20160101
+LAST_DISCOVERED_AT To	type=${TYPE}	to[part.last_discovered_at]=20160429
+LAST_DISCOVERED_AT Range	type=${TYPE}	from[part.last_discovered_at]=20160101	to[part.last_discovered_at]=20160429
+LOCATION.NAME Equal	type=${TYPE}	equal[part.location.name]=GREENSPOINT DEPOT
+LOCATION.NAME Notequal	type=${TYPE}	notequal[part.location.name]=GREENSPOINT DEPOT
+LOCATION.NAME Contains	type=${TYPE}	contains[part.location.name]=Green
+NOTES.NOTE Contains	type=${TYPE}	contains[part.notes.note]=Test
+OWNER.ID Equal	type=${TYPE}	equal[part.owner.id]=2
+OWNER.ID In	type=${TYPE}	equal[part.owner.id]=1;2
+PART_NUMBER Equal	type=${TYPE}	equal[part.part_number]=CAM-20016W
+PART_NUMBER Notequal	type=${TYPE}	notequal[part.part_number]=CAM-20016W
+PART_NUMBER Contains	type=${TYPE}	contains[part.part_number]=CAM
+PART_TYPE.TYPE Equal	type=${TYPE}	equal[part.part_type.type]=Chassis
+PART_TYPE.TYPE Notequal	type=${TYPE}	notequal[part.part_type.type]=Chassis
+PART_TYPE.TYPE Contains	type=${TYPE}	contains[part.part_type.type]=Blade
+PLATFORM.ID Equal	type=${TYPE}	equal[part.platform.id]=2
+PLATFORM.ID In	type=${TYPE}	equal[part.platform.id]=2;3
+PARENT_PLATFORM.ID Equal	type=${TYPE}	equal[part.parent_platform.id]=2
+PARENT_PLATFORM.ID In	type=${TYPE}	equal[part.parent_platform.id]=2;3
+SERIAL_NUMBER Equal	type=${TYPE}	equal[part.serial_number]=A97N014001599
+SERIAL_NUMBER Notequal	type=${TYPE}	notequal[part.serial_number]=A97N014001599
+SERIAL_NUMBER Contains	type=${TYPE}	contains[part.serial_number]=A97
+STATUS.ID Equal	type=${TYPE}	equal[part.status.id]=2
+STATUS.ID In	type=${TYPE}	equal[part.status.id]=2;3
+PART.UPDATED_AT From	type=${TYPE}	from[part.updated_at]=20160101
+PART.UPDATED_AT To	type=${TYPE}	to[part.updated_at]=20160229
+PART.UPDATED_AT Range	type=${TYPE}	from[part.updated_at]=20160101
+VENDOR.NAME Equal	type=${TYPE}	equal[part.vendor.name]=Finisar Corp
+VENDOR.NAME Notequal	type=${TYPE}	notequal[part.vendor.name]=Ciena
+VENDOR.NAME Contains	type=${TYPE}	contains[part.vendor.name]=Cisco
+SPARE_TO_PROD_FLAG True	type=${TYPE}	equal[part.spare_to_prod_flag]=1
+Lost Part in Given State	type=${TYPE}	equal[location.state]=NJ	equal[part.status.id]=2
